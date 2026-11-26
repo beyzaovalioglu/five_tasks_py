@@ -1,0 +1,22 @@
+{{ block title }}The example participant{{ endblock }}
+
+{{ block content }}
+{{ if player.task == 'urns' }}
+    <p>Urn round {{ player.task_round }} of 10</p>
+
+    <p>The example participant drew a ball of this colour:
+       <strong>[ball colour pending]</strong>.</p>
+
+    <p>Their prediction about which urn the ball came from was
+       <strong>[prediction pending]</strong>.</p>
+
+    {{ formfield 'example_left_red_guess' }}
+{{ else }}
+    <p>You will see answers from a participant who completed
+       10 general-knowledge questions in the pre-experiment.</p>
+
+    {{ formfield 'example_total_correct_guess' }}
+{{ endif }}
+
+{{ next_button }}
+{{ endblock }}

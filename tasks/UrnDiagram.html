@@ -1,0 +1,12 @@
+<figure style="margin:0;text-align:center;flex:1;min-width:0;">
+    <figcaption><strong>{{ jar.label }}</strong></figcaption>
+    <svg viewBox="0 0 128 140" role="img" aria-label="{{ jar.label }}: {{ jar.red }} red and {{ jar.blue }} blue balls" style="width:100%;max-width:180px">
+        <path d="M38 12 H90 V23 Q87 32 101 41 Q120 55 116 91 Q113 128 91 132 H37 Q15 128 12 91 Q8 55 27 41 Q41 32 38 23 Z" fill="#f1f6fa" stroke="#334c5f" stroke-width="3"/>
+        <path d="M36 12 H92" stroke="#334c5f" stroke-width="5" stroke-linecap="round"/>
+        {{ for b in jar.balls }}
+        <circle cx="{{ b.x }}" cy="{{ b.y }}" r="10" fill="{{ if b.red }}#ae3545{{ else }}#235e98{{ endif }}"/>
+        <text x="{{ b.x }}" y="{{ b.y }}" dy=".34em" text-anchor="middle" font-size="12" font-weight="bold" fill="white">{{ if b.red }}R{{ else }}B{{ endif }}</text>
+        {{ endfor }}
+    </svg>
+    <div>{{ jar.red }} red · {{ jar.blue }} blue</div>
+</figure>

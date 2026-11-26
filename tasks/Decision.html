@@ -1,0 +1,10 @@
+{{ block title }}{{ player.task }} · Round {{ player.task_round }} of 10{{ endblock }}
+{{ block content }}
+{{ include 'tasks/AssignmentLine.html' }}
+{{ if high }}<p>Pre-experiment example · round {{ player.task_round }}: [response pending]</p>{{ endif }}
+<h3>Click “{{ player.target }}”.</h3>
+{{ for option in options }}
+<button type="submit" name="answer" value="{{ option }}" class="btn btn-primary me-2">{{ option }}</button>
+{{ endfor }}
+{{ formfield_errors 'answer' }}
+{{ endblock }}

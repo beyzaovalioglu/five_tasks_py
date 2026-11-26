@@ -1,0 +1,49 @@
+{{ block title }}Payment draws{{ endblock }}
+
+{{ block content }}
+{{ for row in rows }}
+    <h3>{{ row.name }}</h3>
+
+    <p>
+        Before round 1, you predicted {{ row.first.initial_r5 }}{{ row.unit }}
+        for round 5 and {{ row.first.initial_r10 }}{{ row.unit }} for round 10.
+        After round 5, you updated your round 10 prediction to
+        {{ row.fifth.updated_r10 }}{{ row.unit }}.
+    </p>
+
+    {{ if row.paid_decision }}
+        <p>
+            Selected decision: round {{ row.result.paid_round }}.
+            Your score was {{ row.result.paid_round_score }}.
+        </p>
+        <p>
+            Endowment {{ row.result.payment_endowment }}
+            + decision bonus {{ row.result.decision_bonus }}
+            − example cost {{ row.result.payment_cost }}
+            = <strong>{{ row.result.payoff }}</strong>.
+        </p>
+    {{ else }}
+        <p>
+            Selected forecast: {{ row.forecast }}.
+            Your prediction was {{ row.result.paid_forecast }}{{ row.unit }}.
+            Your actual score in that round was {{ row.result.forecast_target_score }}.
+        </p>
+
+        {{ if row.result.belief_bonus > 0 }}
+            <p>You won the forecast prize of {{ row.result.belief_bonus }}.</p>
+        {{ else }}
+            <p>You did not win the forecast prize. Your forecast bonus is 0 points.</p>
+        {{ endif }}
+
+        <p>
+            Endowment {{ row.result.payment_endowment }}
+            + forecast bonus {{ row.result.belief_bonus }}
+            − example cost {{ row.result.payment_cost }}
+            = <strong>{{ row.result.payoff }}</strong>.
+        </p>
+    {{ endif }}
+{{ endfor }}
+
+<p><strong>Total demo payoff: {{ total }}</strong></p>
+{{ next_button }}
+{{ endblock }}

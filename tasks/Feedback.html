@@ -1,0 +1,8 @@
+{{ block title }}Your result · Round {{ player.task_round }}{{ endblock }}
+{{ block content }}
+{{ if player.task == 'urns' }}
+<p>Your estimate: {{ player.probability_left }}%. Probability implied by the draw and compositions: {{ posterior_pct }}%.</p>
+<p>Accuracy score: {{ player.score }} out of 2.</p>
+{{ else }}<p>{{ if player.correct }}Correct{{ else }}Incorrect{{ endif }} · Your score: {{ player.score }} out of 1.</p>{{ endif }}
+{{ next_button }}
+{{ endblock }}

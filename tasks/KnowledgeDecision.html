@@ -1,0 +1,26 @@
+{{ block title }}General knowledge · Round {{ player.task_round }} of 10{{ endblock }}
+
+{{ block content }}
+{{ if player.practice_item }}
+    <p>Question {{ player.item_id }} is pending.
+       This round uses a practice input.</p>
+{{ endif }}
+
+<h4>{{ player.question_text }}</h4>
+
+{{ if high }}
+    <section class="border rounded p-3 mb-3">
+        <h5>Pre-experiment example · round {{ player.task_round }}</h5>
+
+        <p>Example participant’s answer: [answer pending].</p>
+
+        {{ if participant.condition == 'exogenous' }}
+            <p>Across all 10 questions, the example participant answered
+               [total pending] out of 10 correctly.</p>
+        {{ endif }}
+    </section>
+{{ endif }}
+
+{{ formfield 'knowledge_answer' }}
+{{ next_button }}
+{{ endblock }}

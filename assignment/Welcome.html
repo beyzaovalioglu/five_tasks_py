@@ -1,0 +1,10 @@
+{{ block title }}Your two tasks{{ endblock }}
+{{ block content }}
+<p>First: {{ first }}. Second: {{ second }} (we can get rid of this part). Each lasts 10 rounds.</p>
+<p>This pilot uses hypothetical points. Pre-experiment examples are pending.</p>
+<p>After both tasks, the computer randomly selects one item for payment
+from each task. Each of your 10 round decisions and each of your 3
+performance predictions has a 1 in 13 chance of being selected.
+</p><p>The selected performance forecast can earn up to {{ forecast }} points. The bonus equals {{ forecast }} × (1 − squared error), rounded to two decimals. For an urn-score prediction, divide the difference between predicted and actual score by 2 before squaring. For other tasks, convert your percentage to a probability and compare it with 1 for a correct answer or 0 otherwise.</p>
+{{ next_button }}
+{{ endblock }}

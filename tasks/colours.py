@@ -1,0 +1,1 @@
+OPTIONS = ['Red', 'Blue', 'Green']

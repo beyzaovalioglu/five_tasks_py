@@ -1,0 +1,9 @@
+{{ block title }}Your learning treatment · {{ player.task }}{{ endblock }}
+{{ block content }}
+<p>Condition: {{ participant.condition }} · Assigned treatment: <strong>{{ participant.treatment }}</strong>.</p>
+{{ if participant.treatment == 'choice' }}
+<p>The randomly selected price was {{ player.selected_price }} demo points. Your selected option gives you <strong>{{ player.learning_level }} learning</strong> for this task. Your cost is {{ player.demo_cost }} demo points.</p>
+{{ endif }}
+<p>{{ if player.learning_level == 'high' }}You will see the example panel before each decision in this task.{{ else }}You will complete this task without examples.{{ endif }}</p>
+{{ next_button }}
+{{ endblock }}

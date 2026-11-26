@@ -1,0 +1,8 @@
+{{ block title }}Your performance predictions{{ endblock }}
+{{ block content }}
+{{ if player.task_round == 5 }}<p>You have seen your round 5 feedback. Update your prediction for round 10.</p>{{ endif }}
+{{ if player.task == 'urns' }}<p>How many accuracy points do you expect to earn in the indicated round? Enter a score between 0 and 2. Decimals are allowed.</p>
+{{ else }}<p>What is the chance that you will answer correctly in the indicated round? Enter a percentage between 0 and 100.</p>{{ endif }}
+{{ formfields }}
+{{ next_button }}
+{{ endblock }}

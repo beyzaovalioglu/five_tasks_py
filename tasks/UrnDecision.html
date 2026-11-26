@@ -1,0 +1,33 @@
+{{ block title }}Two urns · Round {{ player.task_round }} of 10{{ endblock }}
+
+{{ block content }}
+{{ if high }}
+    <section class="border rounded p-3 mb-3">
+        <h5>Pre-experiment example · round {{ player.task_round }}</h5>
+
+        {{ if participant.condition == 'exogenous' }}
+            <p>Example left urn: [red count pending] red balls
+               and [blue count pending] blue balls.</p>
+            <p>Example right urn: [red count pending] red balls
+               and [blue count pending] blue balls.</p>
+        {{ endif }}
+
+        <p>Example participant’s draw: [ball colour pending].</p>
+        <p>Example participant’s prediction: [prediction pending].</p>
+
+    </section>
+{{ endif }}
+
+<h5>Your urns</h5>
+
+<div style="display:flex;max-width:490px;gap:12px;margin-bottom:1em">
+    {{ for jar in jars }}
+        {{ include 'tasks/UrnDiagram.html' }}
+    {{ endfor }}
+</div>
+
+<p>Your draw: <strong>{{ player.ball }}</strong>.</p>
+
+{{ formfield 'probability_left' }}
+{{ next_button }}
+{{ endblock }}

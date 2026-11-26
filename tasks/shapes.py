@@ -1,0 +1,1 @@
+OPTIONS = ['Circle', 'Square', 'Triangle']

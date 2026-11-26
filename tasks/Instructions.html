@@ -1,0 +1,14 @@
+{{ block title }}Task {{ player.position }} · {{ player.task }}{{ endblock }}
+{{ block content }}
+{{ if player.task == 'urns' }}
+<p>Each round shows two urns with ten balls each. Left always has a red majority. Right always has a blue majority. The counts change across rounds. Each labelled circle represents one ball.</p>
+<p>Each round independently, the computer chooses the source urn with equal probability, then draws one ball uniformly from it. After seeing its colour, enter the probability (0–100%) that it came from the left urn.</p>
+<p>Accuracy is measured against the probability implied by the current compositions and the draw. Your score is 2 × (1 − squared error), using probabilities between 0 and 1. For example, an error of 0.10 earns 1.98 points.</p>
+{{ elif player.task == 'knowledge' }}
+<p>Answer one question per round by selecting one of four options. A correct answer scores 1, an incorrect answer scores 0. Unfilled question-bank entries are labelled practice items.</p>
+{{ else }}
+<p>Click the named option. A correct click scores 1, an incorrect click scores 0.</p>
+{{ endif }}
+<p>There are ten rounds. You receive feedback on your own decision after each round.</p>
+{{ next_button }}
+{{ endblock }}
